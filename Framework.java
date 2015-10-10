@@ -132,9 +132,6 @@ public class Framework extends Canvas {
                 case MAIN_MENU:
                     //...
                 break;
-                case OPTIONS:
-                    //...
-                break;
                 case GAME_CONTENT_LOADING:
                     //...
                 break;
@@ -196,17 +193,17 @@ public class Framework extends Canvas {
                 game.Draw(g2d, mousePosition());
             break;
             case GAMEOVER:
-                g2d.drawString("You have died. :(", frameWidth / 2 - 83, (int)(frameHeight * 0.65));   
+                g2d.drawString("You have died. :(", frameWidth / 2 - 83, (int)(frameHeight * 0.4));
+                g2d.drawString("Press space/enter to continue.", frameWidth / 2 - 83, (int)(frameHeight * 0.4));
                 g2d.setColor(Color.red);
             break;
             case MAIN_MENU:
-                g2d.drawString("Use ASDW to move.", frameWidth / 2 - 83, (int)(frameHeight * 0.65));   
-                g2d.drawString("Click with left mouse button to shoot.", frameWidth / 2 - 100, (int)(frameHeight * 0.67));                
-                g2d.drawString("Press ESC any time to pause the game.", frameWidth / 2 - 75, (int)(frameHeight * 0.70));
+                g2d.drawString("Use ASDW to move.", frameWidth / 2 - 83, (int)(frameHeight * 0.1));   
+                g2d.drawString("Click to shoot.", frameWidth / 2 - 100, (int)(frameHeight * 0.1));                
+                g2d.drawString("Press space to pause.", frameWidth / 2 - 75, (int)(frameHeight * 0.1));
+                g2d.drawString("Press ESC to exit.", frameWidth / 2 - 75, (int)(frameHeight * 0.1));
+                g2d.drawString("Press space to begin!", frameWidth / 2 - 83, (int)(frameHeight * 0.4)); 
                 g2d.setColor(Color.white);
-            break;
-            case OPTIONS:
-                //...
             break;
             case GAME_CONTENT_LOADING:
                 //...
@@ -278,7 +275,12 @@ public class Framework extends Canvas {
         switch (gameState)
         {
             case MAIN_MENU:
-                newGame();
+                if(e.getKeyCode() == KeyEvent.VK_SPACE){
+                    newGame();
+                }
+                if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+                    System.exit(0);
+                }
             break;
             case GAMEOVER:
                 if(e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_ENTER)
