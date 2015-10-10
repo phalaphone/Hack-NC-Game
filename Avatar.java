@@ -1,5 +1,5 @@
 package Hack-NC-Game;
-public class Avatar{
+public class Avatar implements AvatarInterface.java{
 
-
+yfl. yly
 }
