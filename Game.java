@@ -78,7 +78,40 @@ private ArrayList<Bar> bars;
             bars.get(i).Update;
           }
 
+          for (int i=0;i<balls.size();i++)
+          {
+                Ball ball1=balls.get(i);
+                Avatar avatar= playerChar;
 
+                if (((avatar.getX()+avatar.getWidth())>(ball1.getX()-ball1.getWidth() || (avatar.getX()-avatar.getWidth())<(ball1.getX()+ball1.getWidth()) && ((avatar.getY()+avatar.getHeight())>(ball1.getY()-ball1.getHeight() || (avatar.getY()-avatar.getHeight())<(ball1.getY()+ball1.getHeight()))
+                {
+                     //BALL-AVATAR COLLISION
+                }
+
+                avatar= enemyChar;
+
+                if (((avatar.getX()+avatar.getWidth())>(ball1.getX()-ball1.getWidth() || (avatar.getX()-avatar.getWidth())<(ball1.getX()+ball1.getWidth()) && ((avatar.getY()+avatar.getHeight())>(ball1.getY()-ball1.getHeight() || (avatar.getY()-avatar.getHeight())<(ball1.getY()+ball1.getHeight()))
+                {
+                     //BALL-AVATAR COLLISION
+                }
+
+                for (int j=0;j<bars.size();j++)
+               {
+                     Bar bar=bar.get(j)
+                     if (bar.getX()>(ball1.getX()-ball1.getWidth()&&bar.getX()<(ball1.getX()+ball1.getWidth()&& bar.getY()>(ball1.getY()-ball1.getHeight()&&bar.getY()<(ball1.getY()+ball1.getHeight())
+                     {
+                           //BAR-BALL COLLISION
+                     }
+               }
+               for (int j=0;j<bars.size();j++)
+              {
+                    Ball ball2=ball.get(j)
+                    if (((ball2.getX()+ball2.getWidth())>(ball1.getX()-ball1.getWidth() || (ball2.getX()-ball2.getWidth())<(ball1.getX()+ball1.getWidth()) && ((ball2.getY()+ball2.getHeight())>(ball1.getY()-ball1.getHeight() || (ball2.getY()-ball2.getHeight())<(ball1.getY()+ball1.getHeight()))
+                    {
+                          //BALL-BALL COLLISION
+                    }
+              }
+          }
     }
 
     /**
