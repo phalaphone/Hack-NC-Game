@@ -1,13 +1,16 @@
 package Hack-NC-Game;
 public class Avatar implements AvatarInterface.java{
 
-	private static int xCoordinate, yCoordinate,size;
+	private static int xCoordinate, yCoordinate, size, 
+	private static final int frameWidth, frameHeight;
 	
-	Avatar(int x, int y, int size){
+	Avatar(int x, int y, int frameWidth, int frameHeight){
 
 		xCoordinate = x;
 		yCoordinate = y;
-		this.size = size;
+		this.frameWidth = frameWidth;
+		this.frameHeight = frameHeight;
+		size = .05 * frameHeight;
 	}
 
 	public int getX(){
@@ -22,9 +25,9 @@ public class Avatar implements AvatarInterface.java{
 		return size;
 	}
 
-	public setLocation(int x, int y){
+	public move(int xIncrement, int yIncrement){
 
-		xCoordinate = x;
-		yCoordinate = y;
+
+
 	}
-}
+}	
