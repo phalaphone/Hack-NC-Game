@@ -86,6 +86,7 @@ private ArrayList<Bar> bars;
                 if (((avatar.getX()+avatar.getWidth())>(ball1.getX()-ball1.getWidth() || (avatar.getX()-avatar.getWidth())<(ball1.getX()+ball1.getWidth()) && ((avatar.getY()+avatar.getHeight())>(ball1.getY()-ball1.getHeight() || (avatar.getY()-avatar.getHeight())<(ball1.getY()+ball1.getHeight()))
                 {
                      //BALL-AVATAR COLLISION
+                     Framework.gameState = Framework.GameState.GAMEOVER;
                 }
 
                 avatar= enemyChar;
@@ -93,14 +94,17 @@ private ArrayList<Bar> bars;
                 if (((avatar.getX()+avatar.getWidth())>(ball1.getX()-ball1.getWidth() || (avatar.getX()-avatar.getWidth())<(ball1.getX()+ball1.getWidth()) && ((avatar.getY()+avatar.getHeight())>(ball1.getY()-ball1.getHeight() || (avatar.getY()-avatar.getHeight())<(ball1.getY()+ball1.getHeight()))
                 {
                      //BALL-AVATAR COLLISION
+                     this.RestartGame();
                 }
 
                 for (int j=0;j<bars.size();j++)
                {
-                     Bar bar=bar.get(j)
+                     Bar bar=bars.get(j)
                      if (bar.getX()>(ball1.getX()-ball1.getWidth()&&bar.getX()<(ball1.getX()+ball1.getWidth()&& bar.getY()>(ball1.getY()-ball1.getHeight()&&bar.getY()<(ball1.getY()+ball1.getHeight())
                      {
                            //BAR-BALL COLLISION
+                           ball1.setDirection((ball1.getDirection()+bar.getDirection())/2);
+                           bars.remove(i);
                      }
                }
                for (int j=0;j<bars.size();j++)
@@ -108,7 +112,12 @@ private ArrayList<Bar> bars;
                     Ball ball2=ball.get(j)
                     if (((ball2.getX()+ball2.getWidth())>(ball1.getX()-ball1.getWidth() || (ball2.getX()-ball2.getWidth())<(ball1.getX()+ball1.getWidth()) && ((ball2.getY()+ball2.getHeight())>(ball1.getY()-ball1.getHeight() || (ball2.getY()-ball2.getHeight())<(ball1.getY()+ball1.getHeight()))
                     {
+                          double ball1dir=ball2.getDirection();
+                          double dall2dir=ball2.getDirection();
+                          ball1.setDirection(atan2(((ball2.x-ball1.x),(ball2.y-ball1.y))+ball2dir)/2);
+                          
                           //BALL-BALL COLLISION
+
                     }
               }
           }
