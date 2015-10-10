@@ -2,7 +2,7 @@ package Hack_NC_Game;
 
 import java.awt.Graphics2D;
 import java.awt.Point;
-
+import java.util.*;
 /**
  * Actual game.
  *
@@ -12,7 +12,8 @@ import java.awt.Point;
 public class Game {
 private Avatar playerChar;
 private Avatar enemyChar;
-
+private ArrayList<ProjectileInterface> balls;
+private ArrayList<ProjectileInterface> bars;
     public Game()
     {
         Framework.gameState = Framework.GameState.GAME_CONTENT_LOADING;
