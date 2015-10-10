@@ -6,9 +6,14 @@ import java.awt.RenderingHints;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Ball extends JPanel {
+public class Ball extends Projectile {
 	private int x,y;
-    private int speed;
+    private double speed;
+    
+    public Ball(int avatar_x, int avatar_y, int mouse_x, int mouse_y){
+        super(int avatar_x, int avatar_y, int mouse_x, int mouse_y);
+        speed = 200;
+    }
 	
 	private void moveBall() {
 		
@@ -22,6 +27,6 @@ public class Ball extends JPanel {
 	}
     
     public void increaseSpeed(){
-        speed += 100;
+        speed=1.2*speed;
     }
 }
