@@ -37,35 +37,42 @@ public class Avatar implements AvatarInterface{
 
 	public void move(int xIncrement, int yIncrement){
 		
-		if (xMin <= xCoordinate + xIncrement  &&
-				xMax >= xCoordinate + xIncrement){
-			
-			xCoordinate += xIncrement;
-			
-			if (yMin <= yCoordinate + yIncrement  &&
-					yMax >= yCoordinate + yIncrement){
-				
-				yCoordinate += yIncrement;
-				return;
-			}
-			else if (yMin> yCoordinate + yIncrement){
-				yCoordinate = yMin;
-				return;
-			}
-			else {
-				yCoordinate = yMax;
-				return;
-			}
-		} 
-		
-		else if (true){}
+		moveX(xIncrement);
+		moveY(yIncrement);
 	}
 	
 	private void moveX(int xIncrement){
 		
+		if (xMin <= xCoordinate + xIncrement  &&
+				xMax >= xCoordinate + xIncrement){
+			
+			xCoordinate += xIncrement;
+			return;
+		}
+		else if (xMin < xCoordinate + xIncrement){
+			xCoordinate = xMin;
+			return;
+		}
+		else {
+			xCoordinate = xMax;
+			return;
+		}
 	}
 	
 	private void moveY(int yIncrement){
-		
+		if (yMin <= yCoordinate + yIncrement  &&
+				yMax >= yCoordinate + yIncrement){
+			
+			yCoordinate += yIncrement;
+			return;
+		}
+		else if (yMin < yCoordinate + yIncrement){
+			yCoordinate = yMin;
+			return;
+		}
+		else {
+			yCoordinate = yMax;
+			return;
+		}	
 	}
 }	
