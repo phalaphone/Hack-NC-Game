@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 public class Ball extends Projectile {
 	private int x,y;
-    private double speed;
+    private double speed, direction;
     
     public Ball(int avatar_x, int avatar_y, int mouse_x, int mouse_y){
         super(int avatar_x, int avatar_y, int mouse_x, int mouse_y);
