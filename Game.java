@@ -14,6 +14,7 @@ private Avatar playerChar;
 private Avatar enemyChar;
 private ArrayList<Ball> balls;
 private ArrayList<Bar> bars;
+private double accel;
     public Game()
     {
         Framework.gameState = Framework.GameState.GAME_CONTENT_LOADING;
@@ -103,6 +104,14 @@ private ArrayList<Bar> bars;
                      this.RestartGame();
                 }
 
+                if (ball1.getX()+ball1.getWidth()>Framework.frameWidth|| ball1.getX()-ball1.getWidth()<0)
+                {
+                      ball1.setDirection(180-ball1.getDirection());
+                }
+                if (ball1.getX()+ball1.getWidth()>Framework.frameWidth|| ball1.getX()-ball1.getWidth()<0)
+                {
+                      ball1.setDirection(-1*ball1.getDirection());
+                }
                 for (int j=0;j<bars.size();j++)
                {
                      Bar bar=bars.get(j)
@@ -121,7 +130,9 @@ private ArrayList<Bar> bars;
                           double ball1dir=ball2.getDirection();
                           double dall2dir=ball2.getDirection();
                           ball1.setDirection(atan2(((ball2.x-ball1.x),(ball2.y-ball1.y))+ball2dir)/2);
-                          
+                          ball2.setDirection(atan2(((ball1.x-ball2.x),(ball1.y-ball2.y))+ball1dir)/2);
+                          ball1.increaseSpeed(accel);
+                          ball1.increaseSpeed(accel);
                           //BALL-BALL COLLISION
 
                     }
