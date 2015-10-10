@@ -16,13 +16,17 @@ public class Projectile{
         direction = Math.arctan(y_change/(float)x_change);
     }
     
-    public int[] getDirection(){
+    public double getDirection(){
         return this.direction;
     }
+    abstract public int getX();
+    abstract public int getY();
     
     public void setDirection(int angle_change){
         direction += angle_change;
     }
+    abstract public void create();
+    
     public void Update(){
         // Moves the rocket.
         double delta_x = speed*Math.cos(direction);

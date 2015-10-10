@@ -17,13 +17,20 @@ public class Bar extends Projectile{
         this.speed = 500;
     }
     
+    public int getX(){
+        return x+(int)3*Math.cos(direction);
+    }
+    public int getY(){
+        return y+(int)3*Math.sin(direction);
+    }
+    
     public void create(Graphics g) { //this should create the bar sprite
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
-        int endX   = this. + 3 * Math.sin(angle);
-        int endY   = this.y + 3 * Math.cos(angle);
-        g.addline(this.x,this.y,endX,endY,Color.blue);
+        int endX   = this.x + 3 * Math.sin(direction);
+        int endY   = this.y + 3 * Math.cos(direction);
+        g.drawLine(this.x,this.y,endX,endY,Color.blue);
 	}
 	
 }
