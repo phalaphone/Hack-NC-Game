@@ -13,7 +13,7 @@ public class Projectile{
         this.y = avatar_y;
         int x_change = mouse_x - avatar_x;
         int y_change = mouse_y - avatar_y;
-        direction = Math.arctan(y_change/(float)x_change);
+        direction = Math.atan(y_change/(float)x_change);
     }
     
     public double getDirection(){
