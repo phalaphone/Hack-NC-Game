@@ -2,7 +2,7 @@ package Hack_NC_Game;
 
 import java.math;
 
-public class Projectile{
+public abstract class Projectile{
 
     private int x;
     private int y;
