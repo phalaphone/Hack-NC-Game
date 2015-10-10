@@ -11,10 +11,13 @@ import java.util.*;
 
 public class Game {
 private Avatar playerChar;
-private Avatar enemyChar;
 private ArrayList<Ball> balls;
 private ArrayList<Bar> bars;
 private double accel;
+private long timeBetweenBalls;
+private long timeBetweenBars;
+private long lastTimeBalls;
+private long lastTimeBars;
     public Game()
     {
         Framework.gameState = Framework.GameState.GAME_CONTENT_LOADING;
@@ -75,7 +78,6 @@ private double accel;
         }
 
           playerChar.Update;
-          enemyChar.Update;
           for (int i=0;i<balls.size();i++)
           {
             balls.get(i).Update;
@@ -96,13 +98,6 @@ private double accel;
                      Framework.gameState = Framework.GameState.GAMEOVER;
                 }
 
-                avatar= enemyChar;
-
-                if (((avatar.getX()+avatar.getWidth())>(ball1.getX()-ball1.getWidth() || (avatar.getX()-avatar.getWidth())<(ball1.getX()+ball1.getWidth()) && ((avatar.getY()+avatar.getHeight())>(ball1.getY()-ball1.getHeight() || (avatar.getY()-avatar.getHeight())<(ball1.getY()+ball1.getHeight()))
-                {
-                     //BALL-AVATAR COLLISION
-                     this.RestartGame();
-                }
 
                 if (ball1.getX()+ball1.getWidth()>Framework.frameWidth|| ball1.getX()-ball1.getWidth()<0)
                 {
@@ -138,6 +133,17 @@ private double accel;
                     }
               }
           }
+          if(Canvas.mouseButtonState(MouseEvent.BUTTON1))
+          {
+
+              if(System.nanoTime() - lastTimeBalls >= timeBetweenBars)
+              {
+                    bar=new Bar(playerChar.getX(),playerChar.getY(),mousePosition.getX(),mousePosition.getY());
+                    bars.add(bar);
+
+                  lastTimeBars = System.nanoTime();
+              }
+          }
     }
 
     /**
@@ -148,8 +154,7 @@ private double accel;
      */
     public void Draw(Graphics2D g2d, Point mousePosition)
     {
-          playerCHar.Draw();
-          enemyChar.Draw();
+          playerChar.Draw();
           for (int i=0; i< balls.size();i++)
           {
                 balls.get(i).Draw();
