@@ -12,8 +12,8 @@ import java.util.*;
 public class Game {
 private Avatar playerChar;
 private Avatar enemyChar;
-private ArrayList<ProjectileInterface> balls;
-private ArrayList<ProjectileInterface> bars;
+private ArrayList<Ball> balls;
+private ArrayList<Bar> bars;
     public Game()
     {
         Framework.gameState = Framework.GameState.GAME_CONTENT_LOADING;
@@ -67,6 +67,17 @@ private ArrayList<ProjectileInterface> bars;
      */
     public void UpdateGame(long gameTime, long elaspedTime, Point mousePosition)
     {
+          playerChar.Update;
+          enemyChar.Update;
+          for (int i=0;i<balls.size();i++)
+          {
+            balls.get(i).Update;
+          }
+          for (int i=0;i<bars.size();i++)
+          {
+            bars.get(i).Update;
+          }
+
 
     }
 
