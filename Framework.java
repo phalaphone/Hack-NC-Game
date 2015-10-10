@@ -271,7 +271,27 @@ public class Framework extends Canvas {
     @Override
     public void keyReleasedFramework(KeyEvent e)
     {
-
+        switch (gameState)
+        {
+            case MAIN_MENU:
+                newGame();
+            break;
+            case GAMEOVER:
+                if(e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_ENTER)
+                    restartGame();
+            break;
+            case PAUSE;
+                if (e.getKeyCode() == KeyEvent.VK_SPACE){
+                    gameState = PLAYING;
+                    break;
+                }
+                if (e.getKeyCode() == KeyEvent.VK_ENTER){
+                    restartGame();
+                    break;
+                }
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
+                    System.exit(0);
+        }
     }
 
     /**
