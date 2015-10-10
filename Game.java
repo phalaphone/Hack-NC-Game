@@ -2,6 +2,7 @@ package Hack_NC_Game;
 
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.image.BufferedImage;
 import java.util.*;
 /**
  * Actual game.
@@ -136,7 +137,7 @@ private long lastTimeBars;
                }
                for (int j=i+1;j<balls.size();j++)
               {
-                    Ball ball2=balls.get(j)
+                    Ball ball2=balls.get(j);
                     if (((ball2.getX()+ball2.getWidth())>(ball1.getX()-ball1.getWidth() || (ball2.getX()-ball2.getWidth())<(ball1.getX()+ball1.getWidth()) && ((ball2.getY()+ball2.getHeight())>(ball1.getY()-ball1.getHeight() || (ball2.getY()-ball2.getHeight())<(ball1.getY()+ball1.getHeight()))
                     {
                           double ball1dir=ball2.getDirection();
