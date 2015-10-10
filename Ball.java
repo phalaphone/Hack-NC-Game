@@ -19,7 +19,7 @@ public class Ball extends Projectile {
         return x;
     }
     public int getY(){
-        retun y;
+        return y;
     }
     
     public int getWidth(){
