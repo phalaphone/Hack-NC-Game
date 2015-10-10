@@ -202,7 +202,7 @@ public class Framework extends Canvas {
             case MAIN_MENU:
                 g2d.drawString("Use ASDW to move.", frameWidth / 2 - 83, (int)(frameHeight * 0.65));   
                 g2d.drawString("Click with left mouse button to shoot.", frameWidth / 2 - 100, (int)(frameHeight * 0.67));                
-                g2d.drawString("Press ESC any time to pause the game.", frameWidth / 2 - 75, (int)(frameHeight * 0.70));
+                g2d.drawString("Press SPACE any time to pause the game.", frameWidth / 2 - 75, (int)(frameHeight * 0.70));
                 g2d.setColor(Color.white);
             break;
             case OPTIONS:
@@ -284,9 +284,9 @@ public class Framework extends Canvas {
                 if(e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_ENTER)
                     restartGame();
             break;
-            case PAUSE;
+            case PAUSE:
                 if (e.getKeyCode() == KeyEvent.VK_SPACE){
-                    gameState = PLAYING;
+                    gameState = GameState.PLAYING;
                     break;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_ENTER){
@@ -295,6 +295,15 @@ public class Framework extends Canvas {
                 }
                 if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
                     System.exit(0);
+                break;
+
+            case PLAYING:
+                if(e.getKeyCode() == KeyEvent.VK_SPACE)
+                    gameState = GameState.PAUSE;
+                break;
+
+
+
         }
     }
 
