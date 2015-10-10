@@ -1,9 +1,10 @@
-package Hack-NC-Game;
+package Hack_NC_Game;
 public interface AvatarInterface{
 
-	Avatar(int x, int y, int frameWidth, int frameHeight);
-	int getX();
-	int getY();
-	int getSize();
+	//Avatar(int x, int y, int frameWidth, int frameHeight);
+	double getX();
+	double getY();
+	double getWidth();
+	double getHeight();
 	void move(int xIncrement, int yIncrement);
 }

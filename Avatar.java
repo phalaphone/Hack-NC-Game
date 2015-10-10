@@ -1,8 +1,9 @@
-package Hack-NC-Game;
-public class Avatar implements AvatarInterface.java{
+package Hack_NC_Game;
+public class Avatar implements AvatarInterface{
 
-	private static int xCoordinate, yCoordinate, size, 
-	private static final int frameWidth, frameHeight;
+	private double xCoordinate, yCoordinate, width, height;
+	private final int frameWidth, frameHeight, 
+						xMin, xMax, yMin, yMax;
 	
 	Avatar(int x, int y, int frameWidth, int frameHeight){
 
@@ -10,24 +11,61 @@ public class Avatar implements AvatarInterface.java{
 		yCoordinate = y;
 		this.frameWidth = frameWidth;
 		this.frameHeight = frameHeight;
-		size = .05 * frameHeight;
+		width = frameHeight / 20;
+		height = frameHeight / 20;
+		xMin =  (int)(.5 * width);
+		xMax =  frameWidth + (int)(.5 * width);
+		yMin =  (int)(.5 * height);
+		yMax =  frameHeight + (int)(.5 * height);
 	}
 
-	public int getX(){
+	public double getX(){
 		return xCoordinate;
 	}
 
-	public int getY(){
+	public double getY(){
 		return yCoordinate;
 	}
 
-	public int getSize(){
-		return size;
+	public double getWidth(){
+		return width;
+	}
+	
+	public double getHeight(){
+		return height;
 	}
 
-	public move(int xIncrement, int yIncrement){
-
-
-
+	public void move(int xIncrement, int yIncrement){
+		
+		if (xMin <= xCoordinate + xIncrement  &&
+				xMax >= xCoordinate + xIncrement){
+			
+			xCoordinate += xIncrement;
+			
+			if (yMin <= yCoordinate + yIncrement  &&
+					yMax >= yCoordinate + yIncrement){
+				
+				yCoordinate += yIncrement;
+				return;
+			}
+			else if (yMin> yCoordinate + yIncrement){
+				yCoordinate = yMin;
+				return;
+			}
+			else {
+				yCoordinate = yMax;
+				return;
+			}
+		} 
+		
+		else if (true){}
+	}
+	
+	private void moveX(int xIncrement){
+		
+	}
+	
+	private void moveY(int yIncrement){
+		
 	}
 }	
