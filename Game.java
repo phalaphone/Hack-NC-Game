@@ -14,11 +14,16 @@ private Avatar playerChar;
 private Random rand;
 private ArrayList<Ball> balls;
 private ArrayList<Bar> bars;
+<<<<<<< HEAD
+private BufferedImage background;
+private BufferedImage pausescreen;
+=======
 private double accel;
 private long timeBetweenBalls;
 private long timeBetweenBars;
 private long lastTimeBalls;
 private long lastTimeBars;
+>>>>>>> origin/master
     public Game()
     {
         Framework.gameState = Framework.GameState.GAME_CONTENT_LOADING;
@@ -83,10 +88,16 @@ private long lastTimeBars;
 
         if (Canvas.keyboardKeyState(KeyEvent.VK_ESCAPE)){
           Framework.gamestate = PAUSE;
+          DrawPause(Graphics2D g2d, Point mousePosition);
           return;
         }
 
+<<<<<<< HEAD
           playerChar.Update();
+=======
+          playerChar.Update;
+          enemyChar.Update;
+>>>>>>> origin/master
           for (int i=0;i<balls.size();i++)
           {
             balls.get(i).Update();
@@ -163,6 +174,12 @@ private long lastTimeBars;
      */
     public void Draw(Graphics2D g2d, Point mousePosition)
     {
+<<<<<<< HEAD
+f
+    }
+
+    public void DrawPause(Graphics2D g2d, Point mousePosition){
+=======
           playerChar.Draw();
           for (int i=0; i< balls.size();i++)
           {
@@ -172,6 +189,10 @@ private long lastTimeBars;
           {
                 bars.get(i).Draw();
           }
+>>>>>>> origin/master
 
+        g2d.drawString("ENTER: Restart", Framework.frameWidth / 2 - 100, Framework.frameHeight / 3 + 70);
+        g2d.drawString("ESC:   End Game", Framework.frameWidth / 2 - 100, Framework.frameHeight / 3);
+        g2d.drawString("SPACE: Resume " + gameTime / Framework.secInNanosec + " seconds.", Framework.frameWidth / 2 - 100, Framework.frameHeight / 3 + 20);
     }
 }
