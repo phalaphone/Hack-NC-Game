@@ -50,7 +50,7 @@ public class Avatar implements AvatarInterface{
 		
         try
         {
-            URL spriteImgUrl = this.getClass().getResource("/moon_lander/resources/images/sprite" 
+            URL spriteImgUrl = this.getClass().getResource("/Hack-NC-Game/resources/images/sprite" 
             													+ color + ".png");
             spriteImg	 = ImageIO.read(spriteImgUrl);
             spriteImgWidth = spriteImg.getWidth();
