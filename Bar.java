@@ -28,8 +28,8 @@ public class Bar extends Projectile{
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
-        int endX   = this.x + 3 * Math.sin(direction);
-        int endY   = this.y + 3 * Math.cos(direction);
+        int endX = this.x + 3 * Math.sin(direction);
+        int endY = this.y + 3 * Math.cos(direction);
         g.drawLine(this.x,this.y,endX,endY,Color.blue);
 	}
 	

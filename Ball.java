@@ -33,7 +33,7 @@ public class Ball extends Projectile {
 		g.fillOval(x, y, radius, radius);
 	}
     
-    public void increaseSpeed(){
-        speed=1.2*speed;
+    public void increaseSpeed(double factor){
+        speed=factor*speed;
     }
 }

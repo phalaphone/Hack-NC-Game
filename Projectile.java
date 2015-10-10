@@ -28,7 +28,7 @@ public class Projectile{
     abstract public void create();
     
     public void Update(){
-        // Moves the rocket.
+        // Moves the projectile.
         double delta_x = speed*Math.cos(direction);
         double delta_y = speed*Math.sin(direction);
         
