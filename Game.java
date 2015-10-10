@@ -68,12 +68,12 @@ private double accel;
      */
     public void UpdateGame(long gameTime, long elaspedTime, Point mousePosition)
     {
-      
+
         if (Canvas.keyboardKeyState(KeyEvent.VK_ESCAPE)){
           Framework.gamestate = PAUSE;
           return;
         }
-      
+
           playerChar.Update;
           enemyChar.Update;
           for (int i=0;i<balls.size();i++)
@@ -122,9 +122,9 @@ private double accel;
                            bars.remove(i);
                      }
                }
-               for (int j=0;j<bars.size();j++)
+               for (int j=i+1;j<balls.size();j++)
               {
-                    Ball ball2=ball.get(j)
+                    Ball ball2=balls.get(j)
                     if (((ball2.getX()+ball2.getWidth())>(ball1.getX()-ball1.getWidth() || (ball2.getX()-ball2.getWidth())<(ball1.getX()+ball1.getWidth()) && ((ball2.getY()+ball2.getHeight())>(ball1.getY()-ball1.getHeight() || (ball2.getY()-ball2.getHeight())<(ball1.getY()+ball1.getHeight()))
                     {
                           double ball1dir=ball2.getDirection();
@@ -148,6 +148,16 @@ private double accel;
      */
     public void Draw(Graphics2D g2d, Point mousePosition)
     {
+          playerCHar.Draw();
+          enemyChar.Draw();
+          for (int i=0; i< balls.size();i++)
+          {
+                balls.get(i).Draw();
+          }
+          for (int i=0; i< bars.size();i++)
+          {
+                bars.get(i).Draw();
+          }
 
     }
 }
