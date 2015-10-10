@@ -261,23 +261,7 @@ public class Framework extends Canvas {
      *
      * @return Point of mouse coordinates.
      */
-    private Point mousePosition()
-    {
-        try
-        {
-            Point mp = this.getMousePosition();
-
-            if(mp != null)
-                return this.getMousePosition();
-            else
-                return new Point(0, 0);
-        }
-        catch (Exception e)
-        {
-            return new Point(0, 0);
-        }
-    }
-
+    
 
     /**
      * This method is called when keyboard key is released.
