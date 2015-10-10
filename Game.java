@@ -67,6 +67,12 @@ private ArrayList<Bar> bars;
      */
     public void UpdateGame(long gameTime, long elaspedTime, Point mousePosition)
     {
+      
+        if (Canvas.keyboardKeyState(KeyEvent.VK_ESCAPE)){
+          Framework.gamestate = PAUSE;
+          return;
+        }
+      
           playerChar.Update;
           enemyChar.Update;
           for (int i=0;i<balls.size();i++)
