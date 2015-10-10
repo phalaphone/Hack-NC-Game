@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 public class Ball extends JPanel {
 	private int x,y;
+    private int speed;
 	
 	private void moveBall() {
 		
@@ -19,4 +20,8 @@ public class Ball extends JPanel {
 				RenderingHints.VALUE_ANTIALIAS_ON);
 		g.fillOval(x, y, 30, 30);
 	}
+    
+    public void increaseSpeed(){
+        speed += 100;
+    }
 }
