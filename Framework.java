@@ -87,7 +87,8 @@ public class Framework extends Canvas {
      */
     private void Initialize()
     {
-
+          frameHeight=400;
+          frameWidth=400;
     }
 
     /**
@@ -196,12 +197,12 @@ public class Framework extends Canvas {
                 game.Draw(g2d, mousePosition());
             break;
             case GAMEOVER:
-                g2d.drawString("You have died. :(", frameWidth / 2 - 83, (int)(frameHeight * 0.65));   
+                g2d.drawString("You have died. :(", frameWidth / 2 - 83, (int)(frameHeight * 0.65));
                 g2d.setColor(Color.red);
             break;
             case MAIN_MENU:
-                g2d.drawString("Use ASDW to move.", frameWidth / 2 - 83, (int)(frameHeight * 0.65));   
-                g2d.drawString("Click with left mouse button to shoot.", frameWidth / 2 - 100, (int)(frameHeight * 0.67));                
+                g2d.drawString("Use ASDW to move.", frameWidth / 2 - 83, (int)(frameHeight * 0.65));
+                g2d.drawString("Click with left mouse button to shoot.", frameWidth / 2 - 100, (int)(frameHeight * 0.67));
                 g2d.drawString("Press ESC any time to pause the game.", frameWidth / 2 - 75, (int)(frameHeight * 0.70));
                 g2d.setColor(Color.white);
             break;
@@ -265,7 +266,7 @@ public class Framework extends Canvas {
      *
      * @return Point of mouse coordinates.
      */
-    
+
 
     /**
      * This method is called when keyboard key is released.

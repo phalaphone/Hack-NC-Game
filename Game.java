@@ -11,6 +11,7 @@ import java.util.*;
 
 public class Game {
 private Avatar playerChar;
+private Random rand;
 private ArrayList<Ball> balls;
 private ArrayList<Bar> bars;
 private double accel;
@@ -42,7 +43,15 @@ private long lastTimeBars;
      */
     private void Initialize()
     {
-
+          rand= new Random();
+          playerChar= new Avatar(rand.nextDouble()*Framework.frameWidth,rand.nextDouble()*Framework.frameHeight);
+          balls=new ArrayList<Ball>;
+          bars= new ArrayList<Bar>;
+          accel=1.2;
+          timeBetweenBalls=Framework.secInNanosec / 3;
+          timeBetweenBars;
+          lastTimeBalls=0;
+          lastTimeBars=0;
     }
 
     /**
@@ -77,14 +86,14 @@ private long lastTimeBars;
           return;
         }
 
-          playerChar.Update;
+          playerChar.Update();
           for (int i=0;i<balls.size();i++)
           {
-            balls.get(i).Update;
+            balls.get(i).Update();
           }
           for (int i=0;i<bars.size();i++)
           {
-            bars.get(i).Update;
+            bars.get(i).Update();
           }
 
           for (int i=0;i<balls.size();i++)
