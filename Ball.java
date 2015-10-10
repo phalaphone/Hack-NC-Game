@@ -1,4 +1,4 @@
-package Hack-NC-Game;
+package Hack_NC_Game;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
