@@ -1,4 +1,4 @@
-package Hack-NC-Game;
+package Hack_NC_Game;
 public class Canvas{
 
       import java.awt.Color;

@@ -1,4 +1,4 @@
-package Hack-NC-Game;
+package Hack_NC_Game;
 
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
