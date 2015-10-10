@@ -10,7 +10,8 @@ import java.awt.Point;
  */
 
 public class Game {
-
+private Avatar playerChar;
+private Avatar enemyChar;
 
     public Game()
     {
@@ -63,7 +64,7 @@ public class Game {
      * @param gameTime gameTime of the game.
      * @param mousePosition current mouse position.
      */
-    public void UpdateGame(long gameTime, Point mousePosition)
+    public void UpdateGame(long gameTime, long elaspedTime, Point mousePosition)
     {
 
     }

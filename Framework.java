@@ -120,7 +120,9 @@ public class Framework extends Canvas {
                 case PLAYING:
                     gameTime += System.nanoTime() - lastTime;
 
-                    game.UpdateGame(gameTime, mousePosition());
+                    long elasepTime= System.nanoTime() - lastTime;
+
+                    game.UpdateGame(gameTime, elaspedTime, mousePosition());
 
                     lastTime = System.nanoTime();
                 break;
