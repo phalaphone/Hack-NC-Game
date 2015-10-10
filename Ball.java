@@ -23,7 +23,7 @@ public class Ball extends Projectile {
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
-		g.fillOval(x, y, 30, 30);
+		g.fillOval(x, y, 10, 10);
 	}
     
     public void increaseSpeed(){
