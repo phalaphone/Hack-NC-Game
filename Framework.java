@@ -96,7 +96,14 @@ public class Framework extends Canvas {
      */
     private void LoadContent()
     {
-
+        try
+            {
+                URL spaceMenuImgUrl = this.getClass().getResource("Hack-NC-Game/moon_lander/resources/background.jpg");
+                moonLanderMenuImg = ImageIO.read(moonLanderMenuImgUrl);
+            }
+        catch (IOException ex) {
+            Logger.getLogger(Framework.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 
@@ -200,6 +207,7 @@ public class Framework extends Canvas {
                 g2d.setColor(Color.red);
             break;
             case MAIN_MENU:
+                g2d.drawImage(spaceMenuImg, 0, 0, frameWidth, frameHeight, null);
                 g2d.drawString("Use ASDW to move.", frameWidth / 2 - 83, (int)(frameHeight * 0.65));   
                 g2d.drawString("Click with left mouse button to shoot.", frameWidth / 2 - 100, (int)(frameHeight * 0.67));                
                 g2d.drawString("Press SPACE any time to pause the game.", frameWidth / 2 - 75, (int)(frameHeight * 0.70));
