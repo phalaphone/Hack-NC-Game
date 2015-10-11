@@ -8,19 +8,19 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Ball extends Projectile {
-	private int x,y;
-    private double speed, direction;
-    private static final int radius = 5;
+	
+    private double speed;
+    private static final int radius = 50;
     
     public Ball(int avatar_x, int avatar_y, int mouse_x, int mouse_y){
         super(avatar_x, avatar_y, mouse_x, mouse_y);
         speed = 200;
     }
 	public int getX(){
-        return x;
+        return this.getX();
     }
     public int getY(){
-        return y;
+        return this.getY();
     }
     
     public int getWidth(){
@@ -35,7 +35,8 @@ public class Ball extends Projectile {
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
 		g.setColor(Color.green);
-		g.fillOval(x, y, radius, radius);
+		g.drawOval(this.getX(), this.getY(), radius, radius);
+		g.fillOval(this.getX(), this.getY(), radius, radius);
 	}
     
     public void increaseSpeed(double factor){
