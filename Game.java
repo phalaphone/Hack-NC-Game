@@ -160,7 +160,7 @@ private long lastTimeBars;
                 Ball ball1=balls.get(i);
                 Avatar avatar= playerChar;
 
-                if (((avatar.getX()+avatar.getWidth())>(ball1.getX()-ball1.getWidth()) || (avatar.getX()-avatar.getWidth())<(ball1.getX()+ball1.getWidth())) && (((avatar.getY()+avatar.getHeight())>(ball1.getY()-ball1.getHeight()) || (avatar.getY()-avatar.getHeight())<(ball1.getY()+ball1.getHeight()))))
+                if (((avatar.getX()+avatar.getWidth()+ball1.getWidth())>(ball1.getX()) && (avatar.getX()-avatar.getWidth()-ball1.getWidth())<(ball1.getX())) && (((avatar.getY()+avatar.getHeight()+ball1.getHeight())>(ball1.getY()) && (avatar.getY()-avatar.getHeight()-ball1.getHeight())<(ball1.getY()))))
                 {
                      //BALL-AVATAR COLLISION
                      Framework.gameState = Framework.GameState.GAMEOVER;
@@ -201,16 +201,18 @@ private long lastTimeBars;
                     }
               }
           }
-        /*  for (int i=0;i<turrets.size();i++)
+          if(System.nanoTime() - lastTimeBalls >= timeBetweenBalls)
           {
-                if(System.nanoTime() - lastTimeBalls >= timeBetweenBalls)
-               {
+        	  for (int i=0;i<turrets.size();i++)
+        	  {
+                
                      Ball ball=new Ball((int) turrets.get(i).getX(),(int) turrets.get(i).getY(),(int) playerChar.getX(),(int) playerChar.getY());
                      balls.add(ball);
-
-                   lastTimeBalls = System.nanoTime();
-               }
-          }*/
+                     System.out.println("Shooting");
+                   
+          		}
+          lastTimeBalls = System.nanoTime();
+          }	
           if(Canvas.mouseButtonState(MouseEvent.BUTTON1))
           {
 
