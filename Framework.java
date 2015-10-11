@@ -344,8 +344,9 @@ public class Framework extends Canvas {
     public void mouseClicked(MouseEvent e)
     {
     	System.out.println("you clicked");
-    	Point b = MouseInfo.getPointerInfo().getLocation();
+    	Point b = mousePosition();
     	Game.bars.add(new Bar((int)Game.playerChar.getX(),(int)Game.playerChar.getY(),
     			(int)b.getX(),(int)b.getY()));
+    	System.out.println(b.getX() + ":" + b.getY());
     }
 }
