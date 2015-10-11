@@ -2,8 +2,15 @@ package Hack_NC_Game;
 
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.util.*;
+
+import Hack_NC_Game.Framework.GameState;
+
+import java.math.*;
 /**
  * Actual game.
  *
@@ -50,12 +57,12 @@ private long lastTimeBars;
     private void Initialize()
     {
           rand= new Random();
-          playerChar= new Avatar(rand.nextDouble()*Framework.frameWidth,rand.nextDouble()*Framework.frameHeight);
-          balls=new ArrayList<Ball>;
-          bars= new ArrayList<Bar>;
+          playerChar= new Avatar((int)Math.floor(rand.nextDouble()*Framework.frameWidth),(int)Math.floor(rand.nextDouble()*Framework.frameHeight),Framework.frameWidth,Framework.frameHeight, false);
+          balls=new ArrayList<Ball>();
+          bars= new ArrayList<Bar>();
           accel=1.2;
           timeBetweenBalls=Framework.secInNanosec / 3;
-          timeBetweenBars;
+          timeBetweenBars=0;
           lastTimeBalls=0;
           lastTimeBars=0;
     }
@@ -87,11 +94,12 @@ private long lastTimeBars;
     public void UpdateGame(long gameTime, long elaspedTime, Point mousePosition)
     {
 
-        if (Canvas.keyboardKeyState(KeyEvent.VK_ESCAPE)){
-          Framework.gamestate = PAUSE;
-          DrawPause(Graphics2D g2d, Point mousePosition);
+        /*if (Canvas.keyboardKeyState(KeyEvent.VK_ESCAPE)){
+          Framework.gameState = GameState.PAUSE;
+          Graphics2D g2d= ;
+          this.DrawPause(g2d, mousePosition);
           return;
-        }
+        }*/
 
 
           playerChar.Update();
@@ -110,7 +118,7 @@ private long lastTimeBars;
                 Ball ball1=balls.get(i);
                 Avatar avatar= playerChar;
 
-                if (((avatar.getX()+avatar.getWidth())>(ball1.getX()-ball1.getWidth() || (avatar.getX()-avatar.getWidth())<(ball1.getX()+ball1.getWidth()) && ((avatar.getY()+avatar.getHeight())>(ball1.getY()-ball1.getHeight() || (avatar.getY()-avatar.getHeight())<(ball1.getY()+ball1.getHeight()))
+                if (((avatar.getX()+avatar.getWidth())>(ball1.getX()-ball1.getWidth()) || (avatar.getX()-avatar.getWidth())<(ball1.getX()+ball1.getWidth())) && (((avatar.getY()+avatar.getHeight())>(ball1.getY()-ball1.getHeight()) || (avatar.getY()-avatar.getHeight())<(ball1.getY()+ball1.getHeight()))))
                 {
                      //BALL-AVATAR COLLISION
                      Framework.gameState = Framework.GameState.GAMEOVER;
@@ -127,8 +135,8 @@ private long lastTimeBars;
                 }
                 for (int j=0;j<bars.size();j++)
                {
-                     Bar bar=bars.get(j)
-                     if (bar.getX()>(ball1.getX()-ball1.getWidth()&&bar.getX()<(ball1.getX()+ball1.getWidth()&& bar.getY()>(ball1.getY()-ball1.getHeight()&&bar.getY()<(ball1.getY()+ball1.getHeight())
+                     Bar bar=bars.get(j);
+                     if (bar.getX()>(ball1.getX()-ball1.getWidth())&&bar.getX()<(ball1.getX()+ball1.getWidth())&& bar.getY()>(ball1.getY()-ball1.getHeight())&&bar.getY()<(ball1.getY()+ball1.getHeight()))
                      {
                            //BAR-BALL COLLISION
                            ball1.setDirection((ball1.getDirection()+bar.getDirection())/2);
@@ -138,12 +146,12 @@ private long lastTimeBars;
                for (int j=i+1;j<balls.size();j++)
               {
                     Ball ball2=balls.get(j);
-                    if (((ball2.getX()+ball2.getWidth())>(ball1.getX()-ball1.getWidth() || (ball2.getX()-ball2.getWidth())<(ball1.getX()+ball1.getWidth()) && ((ball2.getY()+ball2.getHeight())>(ball1.getY()-ball1.getHeight() || (ball2.getY()-ball2.getHeight())<(ball1.getY()+ball1.getHeight()))
+                    if (((ball2.getX()+ball2.getWidth())>(ball1.getX()-ball1.getWidth()) || (ball2.getX()-ball2.getWidth())<(ball1.getX()+ball1.getWidth())) && (((ball2.getY()+ball2.getHeight())>(ball1.getY()-ball1.getHeight()) || (ball2.getY()-ball2.getHeight())<(ball1.getY()+ball1.getHeight()))))
                     {
                           double ball1dir=ball2.getDirection();
-                          double dall2dir=ball2.getDirection();
-                          ball1.setDirection(atan2(((ball2.x-ball1.x),(ball2.y-ball1.y))+ball2dir)/2);
-                          ball2.setDirection(atan2(((ball1.x-ball2.x),(ball1.y-ball2.y))+ball1dir)/2);
+                          double ball2dir=ball2.getDirection();
+                          ball1.setDirection(Math.atan(((ball2.getX()-ball1.getX())/(ball2.getY()-ball1.getY()))+ball2dir)/2);
+                          ball2.setDirection( Math.atan(((ball1.getX()-ball2.getX())/(ball1.getY()-ball2.getY()))+ball1dir)/2);
                           ball1.increaseSpeed(accel);
                           ball1.increaseSpeed(accel);
                           //BALL-BALL COLLISION
@@ -156,7 +164,7 @@ private long lastTimeBars;
 
               if(System.nanoTime() - lastTimeBalls >= timeBetweenBars)
               {
-                    bar=new Bar(playerChar.getX(),playerChar.getY(),mousePosition.getX(),mousePosition.getY());
+                    Bar bar=new Bar((int) playerChar.getX(),(int) playerChar.getY(),(int) mousePosition.getX(),(int) mousePosition.getY());
                     bars.add(bar);
 
                   lastTimeBars = System.nanoTime();
@@ -188,6 +196,6 @@ private long lastTimeBars;
 
         g2d.drawString("ENTER: Restart", Framework.frameWidth / 2 - 100, Framework.frameHeight / 3 + 70);
         g2d.drawString("ESC:   End Game", Framework.frameWidth / 2 - 100, Framework.frameHeight / 3);
-        g2d.drawString("SPACE: Resume " + gameTime / Framework.secInNanosec + " seconds.", Framework.frameWidth / 2 - 100, Framework.frameHeight / 3 + 20);
+        g2d.drawString("SPACE: Resume ", Framework.frameWidth / 2 - 100, Framework.frameHeight / 3 + 20);
     }
 }
