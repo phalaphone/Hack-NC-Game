@@ -66,7 +66,7 @@ private long lastTimeBars;
           playerChar= new Avatar((int)Math.floor(rand.nextDouble()*Framework.frameWidth),
         		  (int)Math.floor(rand.nextDouble()*Framework.frameHeight),
         		  Framework.frameWidth,Framework.frameHeight, false);
-          
+
           balls=new ArrayList<Ball>();
           bars= new ArrayList<Bar>();
           accel=1.2;
@@ -98,7 +98,18 @@ private long lastTimeBars;
      */
     public void RestartGame()
     {
+          rand= new Random();
+          playerChar= new Avatar((int)Math.floor(rand.nextDouble()*Framework.frameWidth),
+                    (int)Math.floor(rand.nextDouble()*Framework.frameHeight),
+                    Framework.frameWidth,Framework.frameHeight, false);
 
+          balls=new ArrayList<Ball>();
+          bars= new ArrayList<Bar>();
+          accel=1.2;
+          timeBetweenBalls=Framework.secInNanosec / 3;
+          timeBetweenBars=0;
+          lastTimeBalls=0;
+          lastTimeBars=0;
     }
 
 
@@ -204,7 +215,7 @@ private long lastTimeBars;
 
     public void DrawPause(Graphics2D g2d, Point mousePosition){
 
-    	
+
 
         g2d.drawString("ENTER: Restart", Framework.frameWidth / 2 - 100, Framework.frameHeight / 3 + 70);
         g2d.drawString("ESC:   End Game", Framework.frameWidth / 2 - 100, Framework.frameHeight / 3);
