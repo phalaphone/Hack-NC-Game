@@ -108,7 +108,7 @@ public class Framework extends Canvas {
     {
       try
         {
-            URL spaceMenuImgUrl = this.getClass().getResource("/Hack-NC-Game/resources/images/background.jpg");
+            URL spaceMenuImgUrl = this.getClass().getResource("/Hack_NC_Game/resources/images/background.jpg");
             spaceMenuImg = ImageIO.read(spaceMenuImgUrl);
         }
       catch (IOException ex) {

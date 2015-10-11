@@ -7,6 +7,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.util.*;
+import java.awt.Color;
+import java.io.IOException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 
 import Hack_NC_Game.Framework.GameState;
 
@@ -72,7 +78,14 @@ private long lastTimeBars;
      */
     private void LoadContent()
     {
-
+        try
+        {
+            URL backgroundImgUrl = this.getClass().getResource("/Hack_NC_Game/resources/images/background.jpg");
+            background = ImageIO.read(backgroundImgUrl);
+        }
+        catch (IOException ex) {
+            Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 
@@ -180,19 +193,20 @@ private long lastTimeBars;
      */
     public void Draw(Graphics2D g2d, Point mousePosition)
     {
-          playerChar.Draw();
+          playerChar.Draw(g2d);
           for (int i=0; i< balls.size();i++)
           {
-               balls.get(i).Draw();
+               balls.get(i).Draw(g2d);
           }
           for (int i=0; i< bars.size();i++)
           {
-               bars.get(i).Draw();
+               bars.get(i).Draw(g2d);
           }
     }
 
     public void DrawPause(Graphics2D g2d, Point mousePosition){
 
+    	
 
         g2d.drawString("ENTER: Restart", Framework.frameWidth / 2 - 100, Framework.frameHeight / 3 + 70);
         g2d.drawString("ESC:   End Game", Framework.frameWidth / 2 - 100, Framework.frameHeight / 3);
