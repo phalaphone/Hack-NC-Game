@@ -104,9 +104,9 @@ private long lastTimeBars;
     public void RestartGame()
     {
           rand= new Random();
-          playerChar= new Avatar((int)Math.floor(rand.nextDouble()*Framework.frameWidth),
-                    (int)Math.floor(rand.nextDouble()*Framework.frameHeight),
-                    Framework.frameWidth,Framework.frameHeight, false);
+          playerChar= new Avatar((int)0.5*Framework.frameWidth,
+        		  (int)0.2*Framework.frameHeight,
+        		  Framework.frameWidth,Framework.frameHeight, false);
 
           balls=new ArrayList<Ball>();
           bars= new ArrayList<Bar>();
