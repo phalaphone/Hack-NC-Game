@@ -17,7 +17,7 @@ public class Avatar implements AvatarInterface{
 	private double xCoordinate, yCoordinate, width, height;
 	private final int frameWidth, frameHeight,
 						xMin, xMax, yMin, yMax;
-	private final int speed = 1;
+	private final int speed = 3;
 	private BufferedImage avatarImage;
 	private final boolean isEnemy;
 	private final int color;
@@ -32,12 +32,13 @@ public class Avatar implements AvatarInterface{
 		this.frameHeight = frameHeight;
 		width = frameHeight / 40;
 		height = frameHeight / 40;
-		xMin =  (int)(width);
+		xMin =  0;
 		xMax =  frameWidth + (int)(width);
-		yMin =  (int)(height);
-		yMax =  frameHeight + (int)(height);
+		yMin =  (int)(height * 2);
+		yMax =  frameHeight + (int)height;
 		this.isEnemy = isEnemy;
 
+		
 		Random rand = new Random();
 		if (isEnemy){
 			color = rand.nextInt(3) + 1;
@@ -53,8 +54,8 @@ public class Avatar implements AvatarInterface{
             URL spriteImgUrl = this.getClass().getResource("/Hack_NC_Game/resources/images/sprite"
             													+ color + ".png");
             spriteImg	 = ImageIO.read(spriteImgUrl);
-            spriteImgWidth = spriteImg.getWidth();
-            spriteImgHeight = spriteImg.getHeight();
+            spriteImgWidth = (int)width;
+            spriteImgHeight = (int)height;
 
         }
         catch (IOException ex) {
@@ -85,13 +86,13 @@ public class Avatar implements AvatarInterface{
 
 	private void moveX(double xIncrement){
 
-		if (xMin <= xCoordinate + xIncrement  &&
-				xMax >= xCoordinate + xIncrement){
+		if (xMin <= xCoordinate + xIncrement &&
+				xMax >= xCoordinate + xIncrement - width){
 
 			xCoordinate += xIncrement;
 			return;
 		}
-		else if (xMin < xCoordinate + xIncrement){
+		else if (xMin > xCoordinate + xIncrement){
 			xCoordinate = xMin;
 			return;
 		}
@@ -108,7 +109,7 @@ public class Avatar implements AvatarInterface{
 			yCoordinate += yIncrement;
 			return;
 		}
-		else if (yMin < yCoordinate + yIncrement){
+		else if (yMin > yCoordinate){
 			yCoordinate = yMin;
 			return;
 		}
@@ -121,23 +122,23 @@ public class Avatar implements AvatarInterface{
 	public void Update() {
 			
 		System.out.println("Meme received");
-	        if(Canvas.keyboardKeyState(KeyEvent.VK_W))
+	        if(Canvas.keyboardKeyState(KeyEvent.VK_W) || Canvas.keyboardKeyState(KeyEvent.VK_UP))
 	            moveY(-speed);
 
-	        if(Canvas.keyboardKeyState(KeyEvent.VK_A))
+	        if(Canvas.keyboardKeyState(KeyEvent.VK_A) || Canvas.keyboardKeyState(KeyEvent.VK_LEFT))
 	        	moveX(-speed);
 
-	        if(Canvas.keyboardKeyState(KeyEvent.VK_S))
+	        if(Canvas.keyboardKeyState(KeyEvent.VK_S) || Canvas.keyboardKeyState(KeyEvent.VK_DOWN))
 	        	moveY(speed);
 
-	        if(Canvas.keyboardKeyState(KeyEvent.VK_D))
+	        if(Canvas.keyboardKeyState(KeyEvent.VK_D) || Canvas.keyboardKeyState(KeyEvent.VK_RIGHT))
 	        	moveX(speed);
 	    }
 
 	    public void Draw(Graphics2D g2d)
 	    {
 	        g2d.setColor(Color.white);
-	        g2d.drawImage(spriteImg,(int) xCoordinate, (int) yCoordinate, null);
+	        g2d.drawImage(spriteImg,(int) xCoordinate, (int) yCoordinate,(int)width*2,(int)height*2, null);
 
 	    }
 
