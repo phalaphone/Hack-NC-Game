@@ -28,6 +28,7 @@ private Avatar playerChar;
 private Random rand;
 private ArrayList<Ball> balls;
 private ArrayList<Bar> bars;
+private ArrayList<Turret> turrets;
 
 private BufferedImage background;
 private BufferedImage pausescreen;
@@ -37,6 +38,7 @@ private long timeBetweenBalls;
 private long timeBetweenBars;
 private long lastTimeBalls;
 private long lastTimeBars;
+
 
     public Game()
     {
@@ -89,6 +91,11 @@ private long lastTimeBars;
     private void LoadContent()
     {
     	playerChar.LoadContent();
+    	 for (int i=0; i< turrets.size();i++)
+         {
+              turrets.get(i).LoadContent();
+         }
+    	
         try
         {
             URL backgroundImgUrl = this.getClass().getResource("/Hack_NC_Game/resources/images/background.jpg");
@@ -226,6 +233,10 @@ private long lastTimeBars;
           for (int i=0; i< bars.size();i++)
           {
                bars.get(i).Draw(g2d);
+          }
+          for (int i=0; i< turrets.size();i++)
+          {
+               turrets.get(i).Draw(g2d);
           }
     }
 
