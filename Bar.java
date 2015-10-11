@@ -24,7 +24,7 @@ public class Bar extends Projectile{
         return y+(int)3*Math.sin(direction);
     }
     
-    public void create(Graphics g) { //this should create the bar sprite
+    public void Draw(Graphics g) { //this should create the bar sprite
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
