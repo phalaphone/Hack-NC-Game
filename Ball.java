@@ -12,7 +12,7 @@ public class Ball extends Projectile {
     private static final int radius = 5;
     
     public Ball(int avatar_x, int avatar_y, int mouse_x, int mouse_y){
-        super(int avatar_x, int avatar_y, int mouse_x, int mouse_y);
+        super(avatar_x, avatar_y, mouse_x, mouse_y);
         speed = 200;
     }
 	public int getX(){

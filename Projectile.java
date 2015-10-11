@@ -1,6 +1,6 @@
 package Hack_NC_Game;
 
-import java.math.*;
+import java.awt.Graphics;
 
 public abstract class Projectile{
 
@@ -25,7 +25,7 @@ public abstract class Projectile{
     public void setDirection(int angle_change){
         direction += angle_change;
     }
-    abstract public void create();
+    abstract public void Draw(Graphics g);
     
     public void Update(){
         // Moves the projectile.
