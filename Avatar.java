@@ -50,7 +50,7 @@ public class Avatar implements AvatarInterface{
 
         try
         {
-            URL spriteImgUrl = this.getClass().getResource("/Hack-NC-Game/resources/images/sprite"
+            URL spriteImgUrl = this.getClass().getResource("/Hack_NC_Game/resources/images/sprite"
             													+ color + ".png");
             spriteImg	 = ImageIO.read(spriteImgUrl);
             spriteImgWidth = spriteImg.getWidth();
@@ -119,15 +119,16 @@ public class Avatar implements AvatarInterface{
 	}
 
 	public void Update() {
-
+			
+		System.out.println("Meme received");
 	        if(Canvas.keyboardKeyState(KeyEvent.VK_W))
-	            moveY(speed);
+	            moveY(-speed);
 
 	        if(Canvas.keyboardKeyState(KeyEvent.VK_A))
 	        	moveX(-speed);
 
 	        if(Canvas.keyboardKeyState(KeyEvent.VK_S))
-	        	moveY(-speed);
+	        	moveY(speed);
 
 	        if(Canvas.keyboardKeyState(KeyEvent.VK_D))
 	        	moveX(speed);

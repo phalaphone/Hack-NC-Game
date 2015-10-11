@@ -63,7 +63,10 @@ private long lastTimeBars;
     private void Initialize()
     {
           rand= new Random();
-          playerChar= new Avatar((int)Math.floor(rand.nextDouble()*Framework.frameWidth),(int)Math.floor(rand.nextDouble()*Framework.frameHeight),Framework.frameWidth,Framework.frameHeight, false);
+          playerChar= new Avatar((int)Math.floor(rand.nextDouble()*Framework.frameWidth),
+        		  (int)Math.floor(rand.nextDouble()*Framework.frameHeight),
+        		  Framework.frameWidth,Framework.frameHeight, false);
+          
           balls=new ArrayList<Ball>();
           bars= new ArrayList<Bar>();
           accel=1.2;
@@ -78,9 +81,10 @@ private long lastTimeBars;
      */
     private void LoadContent()
     {
+    	playerChar.LoadContent();
         try
         {
-            URL backgroundImgUrl = this.getClass().getResource("/Hack_NC_Game/resources/images/background.jpg");
+            URL backgroundImgUrl = this.getClass().getResource("/Hack_NC_Game/resources/images/sprite1.jpg");
             background = ImageIO.read(backgroundImgUrl);
         }
         catch (IOException ex) {
@@ -114,7 +118,7 @@ private long lastTimeBars;
           return;
         }*/
 
-
+    	System.out.println("Meme entered");
           playerChar.Update();
 
           for (int i=0;i<balls.size();i++)
