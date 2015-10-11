@@ -68,16 +68,14 @@ private long lastTimeBars;
           playerChar= new Avatar((int)Math.floor(rand.nextDouble()*Framework.frameWidth),
         		  (int)Math.floor(rand.nextDouble()*Framework.frameHeight),
         		  Framework.frameWidth,Framework.frameHeight, false);
-          
+
           balls=new ArrayList<Ball>();
           bars= new ArrayList<Bar>();
-<<<<<<< HEAD
-=======
           turrets= new ArrayList<Turret>();
           turrets.add(new Turret((int) 0.1*Framework.frameWidth,(int) 0.3*Framework.frameWidth));
           turrets.add(new Turret((int) 0.9*Framework.frameWidth,(int) 0.3*Framework.frameWidth));
           turrets.add(new Turret((int) 0.5*Framework.frameWidth, (int) 0.7*Framework.frameWidth));
->>>>>>> origin/master
+
           accel=1.2;
           timeBetweenBalls=Framework.secInNanosec / 3;
           timeBetweenBars=0;
@@ -95,7 +93,7 @@ private long lastTimeBars;
          {
               turrets.get(i).LoadContent();
          }
-    	
+
         try
         {
             URL backgroundImgUrl = this.getClass().getResource("/Hack_NC_Game/resources/images/background.jpg");
@@ -112,9 +110,7 @@ private long lastTimeBars;
      */
     public void RestartGame()
     {
-<<<<<<< HEAD
 
-=======
           rand= new Random();
           playerChar= new Avatar((int)0.5*Framework.frameWidth,
         		  (int)0.2*Framework.frameHeight,
@@ -132,7 +128,7 @@ private long lastTimeBars;
           lastTimeBalls=0;
           lastTimeBars=0;
           Framework.gameState = Framework.GameState.PLAYING;
->>>>>>> origin/master
+
     }
 
 
@@ -145,7 +141,7 @@ private long lastTimeBars;
     public void UpdateGame(long gameTime, long elaspedTime, Point mousePosition)
     {
 
- 
+
           playerChar.Update();
 
           for (int i=0;i<balls.size();i++)
@@ -242,7 +238,7 @@ private long lastTimeBars;
 
     public void DrawPause(Graphics2D g2d, Point mousePosition){
 
-    	
+
 
         g2d.drawString("ENTER: Restart", Framework.frameWidth / 2 - 100, Framework.frameHeight / 3 + 70);
         g2d.drawString("ESC:   End Game", Framework.frameWidth / 2 - 100, Framework.frameHeight / 3);
