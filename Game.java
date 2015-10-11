@@ -199,6 +199,16 @@ private long lastTimeBars;
                     }
               }
           }
+          for (int i=0;i<turrets.size();i++)
+          {
+                if(System.nanoTime() - lastTimeBalls >= timeBetweenBalls)
+               {
+                     Ball bar=new Ball((int) turrets.get(i).getX(),(int) turrets.get(i).getY(),(int) playerChar.getX(),(int) playerChar.getY());
+                     balls.add(ball);
+
+                   lastTimeBalls = System.nanoTime();
+               }
+          }
           if(Canvas.mouseButtonState(MouseEvent.BUTTON1))
           {
 
