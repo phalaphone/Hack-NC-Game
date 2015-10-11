@@ -1,3 +1,36 @@
+package Hack_NC_Game;
 
-public class Turret(){
+import java.awt.Color;
+import java.io.IOException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.imageio.ImageIO;
+
+public class Turret{
+	
+	public Turret(int x, int y){
+	
+	}
+	public void LoadContent(){
+
+        try
+        {
+            URL spriteImgUrl = this.getClass().getResource("/Hack_NC_Game/resources/images/sprite"
+            													+ color + ".png");
+            spriteImg	 = ImageIO.read(spriteImgUrl);
+            spriteImgWidth = spriteImg.getWidth();
+            spriteImgHeight = spriteImg.getHeight();
+
+        }
+        catch (IOException ex) {
+            Logger.getLogger(Avatar.class.getName()).log(Level.SEVERE, null, ex);
+        }
+	}
+
+	public Draw(Graphics2D g2d){
+		g2d.setColor(Color.red);
+		g2d.drawImage(spriteImg, (int)x, (int)y, null);
+	}
 }
