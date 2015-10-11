@@ -69,6 +69,13 @@ private long lastTimeBars;
           
           balls=new ArrayList<Ball>();
           bars= new ArrayList<Bar>();
+<<<<<<< HEAD
+=======
+          turrets= new ArrayList<Turret>();
+          turrets.add(new Turret((int) 0.1*Framework.frameWidth,(int) 0.3*Framework.frameWidth));
+          turrets.add(new Turret((int) 0.9*Framework.frameWidth,(int) 0.3*Framework.frameWidth));
+          turrets.add(new Turret((int) 0.5*Framework.frameWidth, (int) 0.7*Framework.frameWidth));
+>>>>>>> origin/master
           accel=1.2;
           timeBetweenBalls=Framework.secInNanosec / 3;
           timeBetweenBars=0;
@@ -98,7 +105,27 @@ private long lastTimeBars;
      */
     public void RestartGame()
     {
+<<<<<<< HEAD
 
+=======
+          rand= new Random();
+          playerChar= new Avatar((int)0.5*Framework.frameWidth,
+        		  (int)0.2*Framework.frameHeight,
+        		  Framework.frameWidth,Framework.frameHeight, false);
+
+          balls=new ArrayList<Ball>();
+          bars= new ArrayList<Bar>();
+          turrets= new ArrayList<Turret>();
+          turrets.add(new Turret((int) 0.1*Framework.frameWidth,(int) 0.3*Framework.frameWidth));
+          turrets.add(new Turret((int) 0.9*Framework.frameWidth,(int) 0.3*Framework.frameWidth));
+          turrets.add(new Turret((int) 0.5*Framework.frameWidth, (int) 0.7*Framework.frameWidth));
+          accel=1.2;
+          timeBetweenBalls=Framework.secInNanosec / 3;
+          timeBetweenBars=0;
+          lastTimeBalls=0;
+          lastTimeBars=0;
+          Framework.gameState = Framework.GameState.PLAYING;
+>>>>>>> origin/master
     }
 
 
