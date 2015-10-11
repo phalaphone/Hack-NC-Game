@@ -22,8 +22,8 @@ public abstract class Projectile{
     abstract public int getX();
     abstract public int getY();
     
-    public void setDirection(int angle_change){
-        direction += angle_change;
+    public void setDirection(double angle){
+        direction = angle;
     }
     abstract public void Draw(Graphics g);
     

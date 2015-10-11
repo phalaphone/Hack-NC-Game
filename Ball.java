@@ -25,6 +25,9 @@ public class Ball extends Projectile {
     public int getWidth(){
         return radius;
     }
+    public int getHeight(){
+        return radius;
+    }
     
 	public void Draw(Graphics g) { //this should create the ball sprite
 		Graphics2D g2d = (Graphics2D) g;
