@@ -15,7 +15,7 @@ public class Bar extends Projectile{
     
     public Bar(int avatar_x, int avatar_y, int mouse_x, int mouse_y){
         super(avatar_x, avatar_y, mouse_x, mouse_y);
-        this.speed = 500;
+        this.speed = 2;
     }
     
     public int getX(){
@@ -26,6 +26,8 @@ public class Bar extends Projectile{
     }
     
     public void Draw(Graphics g) { //this should create the bar sprite
+    	
+    	System.out.println("it does the thing");
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
@@ -33,6 +35,8 @@ public class Bar extends Projectile{
         int endY = (int) (this.y + 3 * Math.cos(direction));
         g.setColor(Color.blue);
         g.drawLine(this.x,this.y,endX,endY);
+        this.x = endX;
+        this.y = endY;
 	}
 	
 }

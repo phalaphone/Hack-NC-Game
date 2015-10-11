@@ -24,10 +24,10 @@ import java.math.*;
  */
 
 public class Game {
-private Avatar playerChar;
+public static Avatar playerChar;
 private Random rand;
 private ArrayList<Ball> balls;
-private ArrayList<Bar> bars;
+public static ArrayList<Bar> bars;
 private ArrayList<Turret> turrets;
 
 private BufferedImage background;
@@ -72,9 +72,9 @@ private long lastTimeBars;
           balls=new ArrayList<Ball>();
           bars= new ArrayList<Bar>();
           turrets= new ArrayList<Turret>();
-          turrets.add(new Turret((int) 0.1*Framework.frameWidth,(int) 0.3*Framework.frameWidth));
-          turrets.add(new Turret((int) 0.9*Framework.frameWidth,(int) 0.3*Framework.frameWidth));
-          turrets.add(new Turret((int) 0.5*Framework.frameWidth, (int) 0.7*Framework.frameWidth));
+          turrets.add(new Turret((int) (0.1*Framework.frameWidth),(int) (0.3*Framework.frameHeight)));
+          turrets.add(new Turret((int) (0.9*Framework.frameWidth),(int) (0.3*Framework.frameHeight)));
+          turrets.add(new Turret((int) (0.5*Framework.frameWidth), (int) (0.7*Framework.frameHeight)));
 
           accel=1.2;
           timeBetweenBalls=Framework.secInNanosec / 3;

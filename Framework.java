@@ -1,6 +1,7 @@
 package Hack_NC_Game;
 
 import java.awt.Graphics2D;
+import java.awt.MouseInfo;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
@@ -342,6 +343,9 @@ public class Framework extends Canvas {
     @Override
     public void mouseClicked(MouseEvent e)
     {
-
+    	System.out.println("you clicked");
+    	Point b = MouseInfo.getPointerInfo().getLocation();
+    	Game.bars.add(new Bar((int)Game.playerChar.getX(),(int)Game.playerChar.getY(),
+    			(int)b.getX(),(int)b.getY()));
     }
 }

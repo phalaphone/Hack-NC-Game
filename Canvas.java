@@ -103,7 +103,7 @@ public abstract class Canvas extends JPanel implements KeyListener, MouseListene
           }
 
           // Sets mouse key status.
-          private void mouseKeyStatus(MouseEvent e, boolean status)
+          protected void mouseKeyStatus(MouseEvent e, boolean status)
           {
               if(e.getButton() == MouseEvent.BUTTON1)
                   mouseState[0] = status;
