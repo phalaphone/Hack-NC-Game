@@ -28,6 +28,7 @@ private Avatar playerChar;
 private Random rand;
 private ArrayList<Ball> balls;
 private ArrayList<Bar> bars;
+private ArrayList<Turret> turrets;
 
 private BufferedImage background;
 private BufferedImage pausescreen;
@@ -63,12 +64,14 @@ private long lastTimeBars;
     private void Initialize()
     {
           rand= new Random();
-          playerChar= new Avatar((int)Math.floor(rand.nextDouble()*Framework.frameWidth),
-        		  (int)Math.floor(rand.nextDouble()*Framework.frameHeight),
+          playerChar= new Avatar((int)0.5*Framework.frameWidth),
+        		  (int)0.2*Framework.frameHeight),
         		  Framework.frameWidth,Framework.frameHeight, false);
 
           balls=new ArrayList<Ball>();
           bars= new ArrayList<Bar>();
+          //turrets= new ArrayList<Turret>();
+         // turrets.add(new Turret(0.1*Framework.frameWidth,0.3*Framework.frameWidth))
           accel=1.2;
           timeBetweenBalls=Framework.secInNanosec / 3;
           timeBetweenBars=0;
@@ -110,6 +113,7 @@ private long lastTimeBars;
           timeBetweenBars=0;
           lastTimeBalls=0;
           lastTimeBars=0;
+          Framework.gameState = Framework.GameState.PLAYING;
     }
 
 
@@ -210,6 +214,9 @@ private long lastTimeBars;
           for (int i=0; i< bars.size();i++)
           {
                bars.get(i).Draw(g2d);
+          }
+          for (int i=0; i< turrets.size();i++){
+                turrets.get(i).Draw(g2d);
           }
     }
 
