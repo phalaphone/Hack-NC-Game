@@ -215,11 +215,11 @@ public class Framework extends Canvas {
             break;
             case MAIN_MENU:
                 g2d.drawImage(spaceMenuImg, 0, 0, frameWidth, frameHeight, null);
-                g2d.drawString("Use ASDW to move.", frameWidth / 2 - 83, (int)(frameHeight * 0.1));
-                g2d.drawString("Click to shoot.", frameWidth / 2 - 100, (int)(frameHeight * 0.1));
-                g2d.drawString("Press space to pause.", frameWidth / 2 - 75, (int)(frameHeight * 0.1));
-                g2d.drawString("Press ESC to exit.", frameWidth / 2 - 75, (int)(frameHeight * 0.1));
-                g2d.drawString("Press space to begin!", frameWidth / 2 - 83, (int)(frameHeight * 0.4));
+                g2d.drawString("Use ASDW to move.", frameWidth / 2 - 85, (int)(frameHeight * 0.1));
+                g2d.drawString("Click to shoot.", frameWidth / 2 - 85, (int)(frameHeight * 0.3));
+                g2d.drawString("Press space to pause.", frameWidth / 2 - 85, (int)(frameHeight * 0.5));
+                g2d.drawString("Press ESC to exit.", frameWidth / 2 - 85, (int)(frameHeight * 0.7));
+                g2d.drawString("Press space to begin!", frameWidth / 2 - 85, (int)(frameHeight * 0.9));
                 g2d.setColor(Color.white);
             break;
             case GAME_CONTENT_LOADING:
