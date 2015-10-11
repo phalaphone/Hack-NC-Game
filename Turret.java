@@ -25,7 +25,7 @@ public class Turret{
 
         try
         {
-            URL spriteImgUrl = this.getClass().getResource("/Hack_NC_Game/resources/images/eye.jpg");
+            URL spriteImgUrl = this.getClass().getResource("/Hack_NC_Game/resources/images/eyeofsauron.jpg");
             spriteImg	 = ImageIO.read(spriteImgUrl);
             spriteImgWidth = spriteImg.getWidth();
             spriteImgHeight = spriteImg.getHeight();
