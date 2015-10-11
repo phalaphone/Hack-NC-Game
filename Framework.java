@@ -71,6 +71,7 @@ public class Framework extends Canvas {
     private Game game;
 
     private BufferedImage spaceMenuImg;
+    private BufferedImage pauseImg;
 
 
     public Framework ()
@@ -109,6 +110,8 @@ public class Framework extends Canvas {
         {
             URL spaceMenuImgUrl = this.getClass().getResource("/Hack_NC_Game/resources/images/background.jpg");
             spaceMenuImg = ImageIO.read(spaceMenuImgUrl);
+            URL pauseMenuImgUrl = this.getClass().getResource("/Hack_NC_Game/resources/images/pause.jpg");
+            pauseImg = ImageIO.read(pauseMenuImgUrl);
         }
       catch (IOException ex) {
             Logger.getLogger(Framework.class.getName()).log(Level.SEVERE, null, ex);
@@ -225,6 +228,12 @@ public class Framework extends Canvas {
             case GAME_CONTENT_LOADING:
                 //...
             break;
+            case PAUSE:
+            	g2d.drawImage(pauseImg, 0, 0, frameWidth, frameHeight, null);
+            	g2d.setColor(Color.white);
+                g2d.drawString("Press SPACE to resume.", frameWidth / 2 - 85, (int)(frameHeight * 0.3));
+                g2d.drawString("Press ENTER to restart.", frameWidth / 2 - 85, (int)(frameHeight * 0.5));
+                g2d.drawString("Press ESC to exit.", frameWidth / 2 - 85, (int)(frameHeight * 0.7));
         }
     }
 
@@ -315,6 +324,13 @@ public class Framework extends Canvas {
                 }
                 if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
                     System.exit(0);
+                break;
+            case PLAYING:
+            	if (e.getKeyCode() == KeyEvent.VK_SPACE){
+                    gameState = GameState.PAUSE;
+                    break;
+            	}
+            	
         }
     }
 

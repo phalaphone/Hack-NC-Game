@@ -84,7 +84,7 @@ private long lastTimeBars;
     	playerChar.LoadContent();
         try
         {
-            URL backgroundImgUrl = this.getClass().getResource("/Hack_NC_Game/resources/images/sprite1.jpg");
+            URL backgroundImgUrl = this.getClass().getResource("/Hack_NC_Game/resources/images/background.jpg");
             background = ImageIO.read(backgroundImgUrl);
         }
         catch (IOException ex) {
@@ -110,13 +110,6 @@ private long lastTimeBars;
      */
     public void UpdateGame(long gameTime, long elaspedTime, Point mousePosition)
     {
-
-        /*if (Canvas.keyboardKeyState(KeyEvent.VK_ESCAPE)){
-          Framework.gameState = GameState.PAUSE;
-          Graphics2D g2d= ;
-          this.DrawPause(g2d, mousePosition);
-          return;
-        }*/
 
     	System.out.println("Meme entered");
           playerChar.Update();
@@ -197,6 +190,7 @@ private long lastTimeBars;
      */
     public void Draw(Graphics2D g2d, Point mousePosition)
     {
+    	g2d.drawImage(background, 0, 0, Framework.frameWidth, Framework.frameHeight, null);
           playerChar.Draw(g2d);
           for (int i=0; i< balls.size();i++)
           {
