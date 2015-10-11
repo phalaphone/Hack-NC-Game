@@ -50,7 +50,7 @@ public class Window extends JFrame{
             @Override
             public void run() {
                 new Window();
-            }
+            } 
         });
     }
 }
