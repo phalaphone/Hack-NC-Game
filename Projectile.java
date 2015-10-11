@@ -19,8 +19,12 @@ public abstract class Projectile{
     public double getDirection(){
         return this.direction;
     }
-    abstract public int getX();
-    abstract public int getY();
+     public int getX(){
+    	 return x;
+     }
+    public int getY(){
+    	return y;
+    }
     
     public void setDirection(double angle){
         direction = angle;
