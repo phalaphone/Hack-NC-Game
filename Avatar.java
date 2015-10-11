@@ -33,9 +33,9 @@ public class Avatar implements AvatarInterface{
 		width = frameHeight / 40;
 		height = frameHeight / 40;
 		xMin =  0;
-		xMax =  frameWidth + (int)(width);
-		yMin =  (int)(height * 2);
-		yMax =  frameHeight + (int)height;
+		xMax =  frameWidth - (int)(width)*2;
+		yMin =  0;
+		yMax =  frameHeight - (int)height*2;
 		this.isEnemy = isEnemy;
 
 		
@@ -87,7 +87,7 @@ public class Avatar implements AvatarInterface{
 	private void moveX(double xIncrement){
 
 		if (xMin <= xCoordinate + xIncrement &&
-				xMax >= xCoordinate + xIncrement - width){
+				xMax >= xCoordinate + xIncrement){
 
 			xCoordinate += xIncrement;
 			return;
@@ -109,7 +109,7 @@ public class Avatar implements AvatarInterface{
 			yCoordinate += yIncrement;
 			return;
 		}
-		else if (yMin > yCoordinate){
+		else if (yMin > yCoordinate + yIncrement){
 			yCoordinate = yMin;
 			return;
 		}
@@ -133,6 +133,7 @@ public class Avatar implements AvatarInterface{
 
 	        if(Canvas.keyboardKeyState(KeyEvent.VK_D) || Canvas.keyboardKeyState(KeyEvent.VK_RIGHT))
 	        	moveX(speed);
+	        System.out.println(xCoordinate +":" + yCoordinate);
 	    }
 
 	    public void Draw(Graphics2D g2d)
