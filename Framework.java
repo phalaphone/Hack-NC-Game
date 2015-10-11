@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.awt.Color;
 
 /**
  * Framework that controls the game (Game.java) that created it, update it and draw it on the screen.
@@ -130,9 +131,9 @@ public class Framework extends Canvas {
                 case PLAYING:
                     gameTime += System.nanoTime() - lastTime;
 
-                    long elasepTime= System.nanoTime() - lastTime;
+                    long elapsedTime= System.nanoTime() - lastTime;
 
-                    game.UpdateGame(gameTime, elaspedTime, mousePosition());
+                    game.UpdateGame(gameTime, elapsedTime, mousePosition());
 
                     lastTime = System.nanoTime();
                 break;
