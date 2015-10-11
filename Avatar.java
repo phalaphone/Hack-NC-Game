@@ -121,7 +121,7 @@ public class Avatar implements AvatarInterface{
 
 	public void Update() {
 			
-		System.out.println("Meme received");
+		System.out.println("Input received");
 	        if(Canvas.keyboardKeyState(KeyEvent.VK_W) || Canvas.keyboardKeyState(KeyEvent.VK_UP))
 	            moveY(-speed);
 

@@ -133,7 +133,7 @@ private long lastTimeBars;
     public void UpdateGame(long gameTime, long elaspedTime, Point mousePosition)
     {
 
-    	System.out.println("Meme entered");
+    	System.out.println("Input entered");
           playerChar.Update();
 
           for (int i=0;i<balls.size();i++)
