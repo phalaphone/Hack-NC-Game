@@ -35,6 +35,12 @@ public class Turret{
             Logger.getLogger(Avatar.class.getName()).log(Level.SEVERE, null, ex);
         }
 	}
+	public int getX(){
+		return x;
+	}
+	public int getY(){
+		return y;
+	}
 
 	public void Draw(Graphics2D g2d){
 		g2d.setColor(Color.red);

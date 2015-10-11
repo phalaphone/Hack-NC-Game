@@ -72,9 +72,11 @@ private long lastTimeBars;
           balls=new ArrayList<Ball>();
           bars= new ArrayList<Bar>();
           turrets= new ArrayList<Turret>();
+
           turrets.add(new Turret((int) (0.1*Framework.frameWidth),(int) (0.3*Framework.frameHeight)));
           turrets.add(new Turret((int) (0.9*Framework.frameWidth),(int) (0.3*Framework.frameHeight)));
           turrets.add(new Turret((int) (0.5*Framework.frameWidth), (int) (0.7*Framework.frameHeight)));
+
 
           accel=1.2;
           timeBetweenBalls=Framework.secInNanosec / 3;
@@ -119,9 +121,9 @@ private long lastTimeBars;
           balls=new ArrayList<Ball>();
           bars= new ArrayList<Bar>();
           turrets= new ArrayList<Turret>();
-          turrets.add(new Turret((int) 0.1*Framework.frameWidth,(int) 0.3*Framework.frameWidth));
-          turrets.add(new Turret((int) 0.9*Framework.frameWidth,(int) 0.3*Framework.frameWidth));
-          turrets.add(new Turret((int) 0.5*Framework.frameWidth, (int) 0.7*Framework.frameWidth));
+          turrets.add(new Turret((int) 0.1*Framework.frameWidth,(int) 0.3*Framework.frameHeight));
+          turrets.add(new Turret((int) 0.9*Framework.frameWidth,(int) 0.3*Framework.frameHeight));
+          turrets.add(new Turret((int) 0.5*Framework.frameWidth, (int) 0.7*Framework.frameHeight));
           accel=1.2;
           timeBetweenBalls=Framework.secInNanosec / 3;
           timeBetweenBars=0;
@@ -198,6 +200,16 @@ private long lastTimeBars;
 
                     }
               }
+          }
+          for (int i=0;i<turrets.size();i++)
+          {
+                if(System.nanoTime() - lastTimeBalls >= timeBetweenBalls)
+               {
+                     Ball bar=new Ball((int) turrets.get(i).getX(),(int) turrets.get(i).getY(),(int) playerChar.getX(),(int) playerChar.getY());
+                     balls.add(ball);
+
+                   lastTimeBalls = System.nanoTime();
+               }
           }
           if(Canvas.mouseButtonState(MouseEvent.BUTTON1))
           {
