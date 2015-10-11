@@ -63,6 +63,8 @@ public class Framework extends Canvas {
     // The actual game
     private Game game;
 
+    private BufferedImage spaceMenuImg;
+
 
     public Framework ()
     {
@@ -97,7 +99,14 @@ public class Framework extends Canvas {
      */
     private void LoadContent()
     {
-
+      try
+        {
+            URL spaceMenuImgUrl = this.getClass().getResource("/Hack-NC-Game/resources/images/background.jpg");
+            spaceLanderMenuImg = ImageIO.read(spaceLanderMenuImgUrl);
+        }
+      catch (IOException ex) {
+            Logger.getLogger(Framework.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 
@@ -198,6 +207,7 @@ public class Framework extends Canvas {
                 g2d.setColor(Color.red);
             break;
             case MAIN_MENU:
+                g2d.drawImage(spaceMenuImg, 0, 0, frameWidth, frameHeight, null);
                 g2d.drawString("Use ASDW to move.", frameWidth / 2 - 83, (int)(frameHeight * 0.1));
                 g2d.drawString("Click to shoot.", frameWidth / 2 - 100, (int)(frameHeight * 0.1));
                 g2d.drawString("Press space to pause.", frameWidth / 2 - 75, (int)(frameHeight * 0.1));
