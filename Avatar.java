@@ -22,7 +22,7 @@ public class Avatar implements AvatarInterface{
 	private final boolean isEnemy;
 	private final int color;
 	private BufferedImage spriteImg;
-	private final int spriteImgHeight,spriteImgWidth;
+	private int spriteImgHeight,spriteImgWidth;
 
 	public Avatar(int x, int y, int frameWidth, int frameHeight, boolean isEnemy){
 
@@ -38,7 +38,7 @@ public class Avatar implements AvatarInterface{
 		yMax =  frameHeight + (int)(height);
 		this.isEnemy = isEnemy;
 
-		Random rand;
+		Random rand = new Random();
 		if (isEnemy){
 			color = rand.nextInt(3) + 1;
 		}

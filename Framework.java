@@ -299,7 +299,7 @@ public class Framework extends Canvas {
             break;
             case PAUSE;
                 if (e.getKeyCode() == KeyEvent.VK_SPACE){
-                    gameState = PLAYING;
+                    gameState = gameState.PLAYING;
                     break;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_ENTER){
