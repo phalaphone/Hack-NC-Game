@@ -1,6 +1,6 @@
 package Hack_NC_Game;
 
-import java.math;
+import java.math.*;
 
 public abstract class Projectile{
 
