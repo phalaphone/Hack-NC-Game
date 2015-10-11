@@ -13,10 +13,13 @@ import javax.imageio.ImageIO;
 public class Turret{
 	private BufferedImage spriteImg;
 	private int spriteImgWidth, spriteImgHeight, x, y;
+	private int width, height;
 	
 	public Turret(int x, int y){
 		this.x = x;
 		this.y = y;
+		width = 20;
+		height = 20;
 	}
 	public void LoadContent(){
 
@@ -35,6 +38,6 @@ public class Turret{
 
 	public void Draw(Graphics2D g2d){
 		g2d.setColor(Color.red);
-		g2d.drawImage(spriteImg, (int)x, (int)y, null);
+		g2d.drawImage(spriteImg, (int)x, (int)y, (int)width,(int)height, null);
 	}
 }
