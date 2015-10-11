@@ -26,7 +26,7 @@ public class Ball extends Projectile {
         return radius;
     }
     
-	public void create(Graphics g) { //this should create the ball sprite
+	public void draw(Graphics g) { //this should create the ball sprite
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
