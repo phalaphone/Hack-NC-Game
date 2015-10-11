@@ -15,7 +15,7 @@ import java.util.Random;
 public class Avatar implements AvatarInterface{
 
 	private double xCoordinate, yCoordinate, width, height;
-	private final int frameWidth, frameHeight, 
+	private final int frameWidth, frameHeight,
 						xMin, xMax, yMin, yMax;
 	private final int speed = 1;
 	private BufferedImage avatarImage;
@@ -23,8 +23,8 @@ public class Avatar implements AvatarInterface{
 	private final int color;
 	private BufferedImage spriteImg;
 	private final int spriteImgHeight,spriteImgWidth;
-	
-	private Avatar(int x, int y, int frameWidth, int frameHeight, boolean isEnemy){
+
+	public Avatar(int x, int y, int frameWidth, int frameHeight, boolean isEnemy){
 
 		xCoordinate = x;
 		yCoordinate = y;
@@ -37,25 +37,25 @@ public class Avatar implements AvatarInterface{
 		yMin =  (int)(height);
 		yMax =  frameHeight + (int)(height);
 		this.isEnemy = isEnemy;
-		
+
 		Random rand;
 		if (isEnemy){
 			color = rand.nextInt(3) + 1;
 		}
-		else 
+		else
 			color = 0;
 	}
-	
+
 	public void LoadContent(){
-		
+
         try
         {
-            URL spriteImgUrl = this.getClass().getResource("/Hack-NC-Game/resources/images/sprite" 
+            URL spriteImgUrl = this.getClass().getResource("/Hack-NC-Game/resources/images/sprite"
             													+ color + ".png");
             spriteImg	 = ImageIO.read(spriteImgUrl);
             spriteImgWidth = spriteImg.getWidth();
             spriteImgHeight = spriteImg.getHeight();
-           
+
         }
         catch (IOException ex) {
             Logger.getLogger(Avatar.class.getName()).log(Level.SEVERE, null, ex);
@@ -72,22 +72,22 @@ public class Avatar implements AvatarInterface{
 	public double getWidth(){
 		return width;
 	}
-	
+
 	public double getHeight(){
 		return height;
 	}
 
 	public void move(int xIncrement, int yIncrement){
-		
+
 		moveX(xIncrement);
 		moveY(yIncrement);
 	}
-	
+
 	private void moveX(double xIncrement){
-		
+
 		if (xMin <= xCoordinate + xIncrement  &&
 				xMax >= xCoordinate + xIncrement){
-			
+
 			xCoordinate += xIncrement;
 			return;
 		}
@@ -100,11 +100,11 @@ public class Avatar implements AvatarInterface{
 			return;
 		}
 	}
-	
+
 	private void moveY(double yIncrement){
 		if (yMin <= yCoordinate + yIncrement  &&
 				yMax >= yCoordinate + yIncrement){
-			
+
 			yCoordinate += yIncrement;
 			return;
 		}
@@ -115,29 +115,29 @@ public class Avatar implements AvatarInterface{
 		else {
 			yCoordinate = yMax;
 			return;
-		}	
+		}
 	}
-	
+
 	public void Update() {
-	        
+
 	        if(Canvas.keyboardKeyState(KeyEvent.VK_W))
 	            moveY(speed);
-	        
+
 	        if(Canvas.keyboardKeyState(KeyEvent.VK_A))
 	        	moveX(-speed);
-	        
+
 	        if(Canvas.keyboardKeyState(KeyEvent.VK_S))
 	        	moveY(-speed);
-	        
+
 	        if(Canvas.keyboardKeyState(KeyEvent.VK_D))
 	        	moveX(speed);
 	    }
-	    
+
 	    public void Draw(Graphics2D g2d)
 	    {
 	        g2d.setColor(Color.white);
 	        g2d.drawImage(spriteImg,(int) xCoordinate, (int) yCoordinate, null);
 
 	    }
-	    	
-}	
+
+}
