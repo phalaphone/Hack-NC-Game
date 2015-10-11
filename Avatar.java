@@ -133,7 +133,6 @@ public class Avatar implements AvatarInterface{
 
 	        if(Canvas.keyboardKeyState(KeyEvent.VK_D) || Canvas.keyboardKeyState(KeyEvent.VK_RIGHT))
 	        	moveX(speed);
-	        System.out.println(xCoordinate +":" + yCoordinate);
 	    }
 
 	    public void Draw(Graphics2D g2d)

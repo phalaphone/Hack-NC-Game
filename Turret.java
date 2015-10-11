@@ -18,8 +18,8 @@ public class Turret{
 	public Turret(int x, int y){
 		this.x = x;
 		this.y = y;
-		width = 20;
-		height = 20;
+		width = 50;
+		height = 50;
 	}
 	public void LoadContent(){
 
