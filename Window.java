@@ -15,7 +15,7 @@ public class Window extends JFrame{
     {
         // Sets the title for this frame.
         this.setTitle("Meme Team");
-
+        
         // Sets size of the frame.
         if(true) // Full screen mode
         {

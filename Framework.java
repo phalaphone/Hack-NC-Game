@@ -5,6 +5,12 @@ import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.Color;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 
 /**
  * Framework that controls the game (Game.java) that created it, update it and draw it on the screen.
@@ -103,7 +109,7 @@ public class Framework extends Canvas {
       try
         {
             URL spaceMenuImgUrl = this.getClass().getResource("/Hack-NC-Game/resources/images/background.jpg");
-            spaceLanderMenuImg = ImageIO.read(spaceLanderMenuImgUrl);
+            spaceMenuImg = ImageIO.read(spaceMenuImgUrl);
         }
       catch (IOException ex) {
             Logger.getLogger(Framework.class.getName()).log(Level.SEVERE, null, ex);
@@ -297,9 +303,9 @@ public class Framework extends Canvas {
                 if(e.getKeyCode() == KeyEvent.VK_SPACE || e.getKeyCode() == KeyEvent.VK_ENTER)
                     restartGame();
             break;
-            case PAUSE;
+            case PAUSE:
                 if (e.getKeyCode() == KeyEvent.VK_SPACE){
-                    gameState = PLAYING;
+                    gameState = GameState.PLAYING;
                     break;
                 }
                 if (e.getKeyCode() == KeyEvent.VK_ENTER){
